@@ -18,9 +18,9 @@ p.a = 3; % lit
 p.G_e = 0.1; % Autocorrelation early-season
 p.V_oe = 5; % Variance of underlying white-noise
 %  - late season
-p.G_l = 0; 
-p.V_ol = 0;
+p.G_l = 0.2; 
+p.V_ol = 4;
 %  - correlation between early and late
-p.C_oeol = 0;
+p.C_oeol = 1;
 % xs = -3.7775; n = 215.77;
 

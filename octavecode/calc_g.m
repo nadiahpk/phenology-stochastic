@@ -87,7 +87,7 @@ w_ln = s*a*Pe_n*Pr_l*Ps;
 
 w_nn = s*a*Ps*Pr*Pe_nn;
 
-w1 = 1/w; w2 = 1/(w^2); w3 = 1/(w^3);
+w1 = 1/w; w2 = -1/(w^2); w3 = 2/(w^3);
 
 w1_e = w2*w_e;
 w1_l = w2*w_l;
@@ -105,10 +105,18 @@ g_n = w2*w_n*w_x + w1*w_xn;
 
 g_ee = w2_e*w_e*w_x + w2*w_ee*w_x + w2*w_e*w_xe + ...
         w1_e*w_xe + w1*w_xee;
-g_el = w2_l*w_e*w_x + w2*w_el*w_x + w2*w_e*w_xl + ...
-        w1_l*w_xl + w1*w_xel;
-g_en = w2_n*w_e*w_x + w2*w_en*w_x + w2*w_e*w_xn + ...
-        w1_n*w_xn + w1*w_xen;
+%g_el = w2_l*w_e*w_x + w2*w_el*w_x + w2*w_e*w_xl + ...
+        %w1_l*w_xe + w1*w_xel;
+
+%g_ab = w1_b*w_xa + w1*w_xab + w_xb*w2*w_a + ...
+        %w_x*w2_b*w_a + w_x*w2*w_ab;
+g_el = w1_l*w_xe + w1*w_xel + w_xl*w2*w_e + ...
+        w_x*w2_l*w_e + w_x*w2*w_el;
+
+%g_en = w2_n*w_e*w_x + w2*w_en*w_x + w2*w_e*w_xn + ...
+        %w1_n*w_xe + w1*w_xen;
+g_en = w1_n*w_xe + w1*w_xen + w_xn*w2*w_e + ...
+        w_x*w2_n*w_e + w_x*w2*w_en;
 
 g_ll = w2_l*w_l*w_x + w2*w_ll*w_x + w2*w_l*w_xl + ...
         w1_l*w_xl + w1*w_xll;
@@ -117,3 +125,4 @@ g_ln = w2_n*w_l*w_x + w2*w_ln*w_x + w2*w_l*w_xn + ...
 
 g_nn = w2_n*w_n*w_x + w2*w_nn*w_x + w2*w_n*w_xn + ...
         w1_n*w_xn + w1*w_xnn;
+
